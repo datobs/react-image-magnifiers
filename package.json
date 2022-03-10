@@ -1,6 +1,9 @@
 {
-  "name": "react-image-magnifiers",
+  "name": "@datobs/react-image-magnifiers",
   "version": "1.4.0",
+  "files": [
+    "dist"
+  ],
   "description": "A collection of responsive, image magnifying React components for mouse and touch.",
   "keywords": [
     "react",
@@ -21,9 +24,9 @@
   "author": "Adam Risberg <myniztan@hotmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adamrisberg/react-image-magnifiers.git"
+    "url": "https://github.com/datobs/react-image-magnifiers.git"
   },
-  "homepage": "https://adamrisberg.github.io/react-image-magnifiers",
+  "homepage": "https://github.com/datobs/react-image-magnifiers",
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
