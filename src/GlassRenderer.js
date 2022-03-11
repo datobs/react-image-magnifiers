@@ -1,4 +1,5 @@
 import React from "react";
+import { createPortal } from "react-dom";
 import utils from "./utils";
 import Image from "./Image";
 import styles from "./styles";
@@ -9,6 +10,7 @@ const GlassRenderer = props => {
     itemPosition,
     activePosition,
     elementDimensions,
+    elementOffset,
     itemDimensions,
     active,
     imageSrc,
@@ -25,7 +27,8 @@ const GlassRenderer = props => {
     cursorStyle,
     onImageLoad,
     onLargeImageLoad,
-    onLoadRefresh
+    onLoadRefresh,
+    portalTarget
   } = props;
 
   const legalSize = itemDimensions.width > elementDimensions.width;
@@ -48,7 +51,42 @@ const GlassRenderer = props => {
     y: activePosition.y - positionOffset + magnifierOffsetY
   };
 
+  if (portalTarget) {
+    divPosition.x = divPosition.x + elementOffset.left;
+    divPosition.y = divPosition.y + elementOffset.top;
+  }
+
   const borderRadius = square ? "0" : "50%";
+
+  const glass = (
+    <div
+      style={{
+        ...styles.getZoomContainerStyle(
+          magnifierSizeNum,
+          magnifierSizeNum,
+          true
+        ),
+        visibility: !isActive ? "hidden" : "visible",
+        borderRadius,
+        zIndex: "1",
+        border: `${magnifierBorderSize}px solid ${magnifierBorderColor}`,
+        transform: `translate(${divPosition.x}px, ${divPosition.y}px)`,
+        backgroundColor: magnifierBackgroundColor,
+        backgroundClip: "padding-box"
+      }}
+    >
+      <Image
+        style={styles.getLargeImageStyle(position.x, position.y, isActive)}
+        ref={itemRef}
+        src={largeImageSrc || imageSrc}
+        alt={imageAlt}
+        onImageLoad={onLargeImageLoad}
+        onLoadRefresh={onLoadRefresh}
+      />
+    </div>
+  );
+
+  const glassNode = !portalTarget ? glass : createPortal(glass, portalTarget);
 
   return (
     <React.Fragment>
@@ -64,31 +102,7 @@ const GlassRenderer = props => {
         onImageLoad={onImageLoad}
         onLoadRefresh={onLoadRefresh}
       />
-      <div
-        style={{
-          ...styles.getZoomContainerStyle(
-            magnifierSizeNum,
-            magnifierSizeNum,
-            true
-          ),
-          visibility: !isActive ? "hidden" : "visible",
-          borderRadius,
-          zIndex: "1",
-          border: `${magnifierBorderSize}px solid ${magnifierBorderColor}`,
-          transform: `translate(${divPosition.x}px, ${divPosition.y}px)`,
-          backgroundColor: magnifierBackgroundColor,
-          backgroundClip: "padding-box"
-        }}
-      >
-        <Image
-          style={styles.getLargeImageStyle(position.x, position.y, isActive)}
-          ref={itemRef}
-          src={largeImageSrc || imageSrc}
-          alt={imageAlt}
-          onImageLoad={onLargeImageLoad}
-          onLoadRefresh={onLoadRefresh}
-        />
-      </div>
+      {glassNode}
       {renderOverlay ? renderOverlay(active) : null}
     </React.Fragment>
   );
