@@ -2,7 +2,10 @@
   "name": "@datobs/react-image-magnifiers",
   "version": "1.4.1",
   "files": [
-    "dist"
+    "*.md",
+    "dist",
+    "LICENCE",
+    "package.json"
   ],
   "description": "A collection of responsive, image magnifying React components for mouse and touch.",
   "keywords": [
