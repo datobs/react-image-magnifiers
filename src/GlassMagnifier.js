@@ -27,7 +27,8 @@ const GlassMagnifier = props => {
     onImageLoad,
     onLargeImageLoad,
     onZoomStart,
-    onZoomEnd
+    onZoomEnd,
+    portalTarget
   } = props;
 
   return (
@@ -61,6 +62,7 @@ const GlassMagnifier = props => {
         cursorStyle={cursorStyle}
         onImageLoad={onImageLoad}
         onLargeImageLoad={onLargeImageLoad}
+        portalTarget={portalTarget}
       />
     </ReactInputPosition>
   );
@@ -89,7 +91,8 @@ GlassMagnifier.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   onImageLoad: PropTypes.func,
-  onLargeImageLoad: PropTypes.func
+  onLargeImageLoad: PropTypes.func,
+  portalTarget: PropTypes.instanceOf(HTMLElement)
 };
 
 GlassMagnifier.defaultProps = {
