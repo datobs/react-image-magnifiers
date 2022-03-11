@@ -1,10 +1,10 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { createPortal } from "react-dom";
 import utils from "./utils";
 import Image from "./Image";
 import styles from "./styles";
 
-const GlassRenderer = props => {
+const GlassRenderer = forwardRef((props, ref) => {
   const {
     itemRef,
     itemPosition,
@@ -101,11 +101,12 @@ const GlassRenderer = props => {
         alt={imageAlt}
         onImageLoad={onImageLoad}
         onLoadRefresh={onLoadRefresh}
+        ref={ref}
       />
       {glassNode}
       {renderOverlay ? renderOverlay(active) : null}
     </React.Fragment>
   );
-};
+});
 
 export default GlassRenderer;

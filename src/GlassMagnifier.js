@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import utils from "./utils";
 import ReactInputPosition, {
@@ -7,7 +7,7 @@ import ReactInputPosition, {
 } from "react-input-position";
 import GlassRenderer from "./GlassRenderer";
 
-const GlassMagnifier = props => {
+const GlassMagnifier = forwardRef((props, ref) => {
   const {
     imageSrc,
     largeImageSrc,
@@ -63,10 +63,11 @@ const GlassMagnifier = props => {
         onImageLoad={onImageLoad}
         onLargeImageLoad={onLargeImageLoad}
         portalTarget={portalTarget}
+        ref={ref}
       />
     </ReactInputPosition>
   );
-};
+});
 
 GlassMagnifier.propTypes = {
   imageSrc: PropTypes.oneOfType([
