@@ -6,7 +6,7 @@ const Image = React.forwardRef(function(props, ref) {
 
   const [imageIdx, setImageIdx] = React.useState(0);
   const imageErrorRef = React.useRef(false);
-  const imageArr = src.constructor === Array ? src : [src];
+  const imageArr = src?.constructor === Array ? src : [src];
 
   return (
     <img
@@ -21,7 +21,7 @@ const Image = React.forwardRef(function(props, ref) {
         }
       }}
       onError={e => {
-        if (imageIdx < imageArr.length) {
+        if (src?.constructor === Array && imageIdx < imageArr.length) {
           imageErrorRef.current = true;
           setImageIdx(idx => idx + 1);
         }
