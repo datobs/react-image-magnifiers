@@ -23,6 +23,7 @@ const GlassMagnifier = forwardRef((props, ref) => {
     renderOverlay,
     allowOverflow,
     style,
+    imageStyle,
     className,
     onImageLoad,
     onLargeImageLoad,
@@ -60,6 +61,7 @@ const GlassMagnifier = forwardRef((props, ref) => {
         magnifierOffsetY={magnifierOffsetY}
         renderOverlay={renderOverlay}
         cursorStyle={cursorStyle}
+        imageStyle={imageStyle}
         onImageLoad={onImageLoad}
         onLargeImageLoad={onLargeImageLoad}
         portalTarget={portalTarget}
@@ -91,6 +93,7 @@ GlassMagnifier.propTypes = {
   renderOverlay: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.object,
+  imageStyle: PropTypes.object,
   onImageLoad: PropTypes.func,
   onLargeImageLoad: PropTypes.func,
   portalTarget: PropTypes.instanceOf(HTMLElement)

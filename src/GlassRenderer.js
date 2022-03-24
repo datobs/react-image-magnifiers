@@ -25,6 +25,7 @@ const GlassRenderer = forwardRef((props, ref) => {
     magnifierOffsetY,
     renderOverlay,
     cursorStyle,
+    imageStyle,
     onImageLoad,
     onLargeImageLoad,
     onLoadRefresh,
@@ -95,7 +96,8 @@ const GlassRenderer = forwardRef((props, ref) => {
           width: "100%",
           display: "block",
           boxSizing: "border-box",
-          cursor: legalSize ? cursorStyle : "default"
+          cursor: legalSize ? cursorStyle : "default",
+          ...imageStyle,
         }}
         src={imageSrc}
         alt={imageAlt}
