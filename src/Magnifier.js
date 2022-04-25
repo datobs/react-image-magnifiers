@@ -18,6 +18,7 @@ const Magnifier = forwardRef((props, ref) => {
     dragToMove,
     className,
     style,
+    imageStyle,
     mouseActivation,
     touchActivation,
     interactionSettings,
@@ -53,6 +54,7 @@ const Magnifier = forwardRef((props, ref) => {
         renderOverlay={renderOverlay}
         cursorStyle={cursorStyle}
         cursorStyleActive={finalActiveCursorStyle}
+        imageStyle={imageStyle}
         onImageLoad={onImageLoad}
         onLargeImageLoad={onLargeImageLoad}
         onImageError={onImageError}
@@ -79,6 +81,7 @@ Magnifier.propTypes = {
   dragToMove: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.object,
+  imageStyle: PropTypes.object,
   mouseActivation: PropTypes.string,
   touchActivation: PropTypes.string,
   interactionSettings: PropTypes.shape({

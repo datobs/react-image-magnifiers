@@ -15,6 +15,7 @@ const MagnifierRenderer = forwardRef((props, ref) => {
     renderOverlay,
     cursorStyle,
     cursorStyleActive,
+    imageStyle,
     onImageLoad,
     onLargeImageLoad,
     onLoadRefresh
@@ -34,7 +35,8 @@ const MagnifierRenderer = forwardRef((props, ref) => {
         style={{
           display: "block",
           visibility: isActive ? "hidden" : "visible",
-          width: "100%"
+          width: "100%",
+          ...imageStyle,
         }}
         src={imageSrc}
         alt={imageAlt}
