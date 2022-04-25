@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import utils from "./utils";
 import ReactInputPosition, {
@@ -7,7 +7,7 @@ import ReactInputPosition, {
 } from "react-input-position";
 import MagnifierRenderer from "./MagnifierRenderer";
 
-const Magnifier = props => {
+const Magnifier = forwardRef((props, ref) => {
   const {
     imageSrc,
     largeImageSrc,
@@ -57,10 +57,11 @@ const Magnifier = props => {
         onLargeImageLoad={onLargeImageLoad}
         onImageError={onImageError}
         onLargeImageError={onLargeImageError}
+        ref={ref}
       />
     </ReactInputPosition>
   );
-};
+});
 
 Magnifier.propTypes = {
   imageSrc: PropTypes.oneOfType([

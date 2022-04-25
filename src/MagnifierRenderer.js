@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Image from "./Image";
 import styles from "./styles";
 
-const MagnifierRenderer = props => {
+const MagnifierRenderer = forwardRef((props, ref) => {
   const {
     itemPosition,
     active,
@@ -40,6 +40,7 @@ const MagnifierRenderer = props => {
         alt={imageAlt}
         onImageLoad={onImageLoad}
         onLoadRefresh={onLoadRefresh}
+        ref={ref}
       />
       <div
         style={styles.getZoomContainerStyle(
@@ -64,6 +65,6 @@ const MagnifierRenderer = props => {
       {renderOverlay ? renderOverlay(active) : null}
     </div>
   );
-};
+});
 
 export default MagnifierRenderer;
