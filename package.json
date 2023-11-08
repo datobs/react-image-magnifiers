@@ -1,6 +1,6 @@
 {
   "name": "@datobs/react-image-magnifiers",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "files": [
     "*.md",
     "dist",
