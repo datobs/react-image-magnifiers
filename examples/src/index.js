@@ -9,7 +9,7 @@ import Header from "./Header";
 
 import "./style.css";
 
-const image = require("./sample-image.jpg");
+const image = require("./sample-image.jpg").default;
 
 const DemoApp = () => {
   return (

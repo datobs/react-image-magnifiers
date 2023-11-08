@@ -9,10 +9,10 @@ const Header = () => {
         </div>
         <div className="logos">
           <a href="https://github.com/adamrisberg/react-image-magnifiers">
-            <img src={require("./github-logo.png")} alt="Github Logo" />
+            <img src={require("./github-logo.png").default} alt="Github Logo" />
           </a>
           <a href="https://www.npmjs.com/package/react-image-magnifiers">
-            <img src={require("./npm-logo.png")} alt="NPM Logo" />
+            <img src={require("./npm-logo.png").default} alt="NPM Logo" />
           </a>
         </div>
       </div>
