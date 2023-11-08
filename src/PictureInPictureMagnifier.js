@@ -4,7 +4,7 @@ import utils from "./utils";
 import ReactInputPosition, {
   TOUCH_ACTIVATION,
   MOUSE_ACTIVATION
-} from "react-input-position";
+} from "@datobs/react-input-position";
 import PictureInPictureRenderer from "./PictureInPictureRenderer";
 
 class PictureInPictureMagnifier extends Component {

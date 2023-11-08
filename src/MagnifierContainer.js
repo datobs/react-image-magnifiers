@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { defaultState } from "react-input-position";
+import { defaultState } from "@datobs/react-input-position";
 import utils from "./utils";
 
 export const MagnifierContext = React.createContext();

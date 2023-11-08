@@ -2,7 +2,7 @@ import React from "react";
 import {
   TOUCH_ACTIVATION,
   MOUSE_ACTIVATION
-} from "react-input-position";
+} from "@datobs/react-input-position";
 
 const MagnifierExampleControls = props => {
   const {
